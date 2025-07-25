@@ -1,0 +1,3 @@
+[submodule "zatca_amaken"]
+	path = zatca_amaken
+	url = https://github.com/ahmed858/ZATCA-Phase-2-Integration.git
