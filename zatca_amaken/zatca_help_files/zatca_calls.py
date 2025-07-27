@@ -32,12 +32,12 @@ def get_first_csid_call(otp, csr, integration_type):
         frappe.throw("Error in get_CSID: {}".format(e))
 
 
-def compliance_test_invoices_call(username, password, integration_type):
+def compliance_test_invoices_call(username, password, integration_type,company_name):
     try:
 
         url = f"https://gw-fatoora.zatca.gov.sa/e-invoicing/{integration_type}/compliance/invoices"
 
-        Invoices = helper.get_hash_test_invoices()
+        Invoices = helper.get_hash_test_invoices(company_name= company_name)
         # frappe.msgprint(Invoices)
         # Concatenate username and password, then encode as bytes before encoding in base64
         token = username + ":" + password
@@ -70,10 +70,10 @@ def compliance_test_invoices_call(username, password, integration_type):
                 "Content-Type": "application/json",
                 "Authorization": f"Basic {token_base64}",  # Add the token here
             }
-
+            # Send Request 
             response = requests.post(url, headers=headers, data=payload)
-
-            if response.status_code != 200 and response.status_code != 201:
+            acceptable_statuses = (200, 201, 208)
+            if  response.status_code not in acceptable_statuses :
                 ok = False
                 zatca_return_text = response.text
                 break

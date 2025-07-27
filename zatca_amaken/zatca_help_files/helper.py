@@ -32,30 +32,34 @@ def temp_zatca_notification(doc=None,temp=None):
 
 
 
-def get_hash_test_invoices():
-
+def get_hash_test_invoices(company_name):
+    company_folder = ''
+    if company_name == 'شركة أماكن للتقييم العقاري':
+        company_folder ='Amaken Appraisal Example Invoices'
+    elif company_name == 'شركة مجموعة أماكن الدولية':
+        company_folder ='Amaken Group Example Invoices'
+    else:
+        frappe.throw(frappe._('No test invoice to this company'))
+        
+    frappe.msgprint(company_folder)
     Invoices = []
     # 1
-    invoice_hash, encoded_invoice = hasher.get_invoice_hash("AmakenStandardInvoice.xml")
-    UUID = hasher.get_uuid_from_xml("AmakenStandardInvoice.xml")
+    invoice_hash, encoded_invoice = hasher.get_invoice_hash(f"{company_folder}/StandardInvoice.xml")
+    UUID = hasher.get_uuid_from_xml(f"{company_folder}/StandardInvoice.xml")
     Invoices.append((invoice_hash, UUID, encoded_invoice))
+    
     # 2
-
-    invoice_hash, encoded_invoice = hasher.get_invoice_hash(
-        "AmakenStandardCreditNote.xml"
-    )
-    UUID = hasher.get_uuid_from_xml("AmakenStandardCreditNote.xml")
+    invoice_hash, encoded_invoice = hasher.get_invoice_hash(f"{company_folder}/StandardCreditNote.xml")
+    UUID = hasher.get_uuid_from_xml(f"{company_folder}/StandardCreditNote.xml")
     Invoices.append((invoice_hash, UUID, encoded_invoice))
+    
     # 3
-
-    invoice_hash, encoded_invoice = hasher.get_invoice_hash(
-        "AmakenStandardDebitNoe.xml"
-    )
-
-    UUID = hasher.get_uuid_from_xml("AmakenStandardDebitNoe.xml")
+    invoice_hash, encoded_invoice = hasher.get_invoice_hash(f"{company_folder}/StandardDebitNote.xml")
+    UUID = hasher.get_uuid_from_xml(f"{company_folder}/StandardDebitNote.xml")
     Invoices.append((invoice_hash, UUID, encoded_invoice))
+    
+    
     # # 4
-
     # invoice_hash, encoded_invoice = hasher.get_invoice_hash("Simplified_Invoice.xml")
     # UUID = hasher.get_uuid_from_xml("Simplified_Invoice.xml")
     # Invoices.append((invoice_hash, UUID, encoded_invoice))
@@ -119,7 +123,7 @@ def compliance_test_invoices(ZATCA_settings_name):
         integration_type = ZATCA_settings_doc.integration_type
 
         res = compliance_test_invoices_call(
-            username=U, password=P, integration_type=integration_type
+            username=U, password=P, integration_type=integration_type,company_name = ZATCA_settings_doc.company
         )
 
         if res != 1:
