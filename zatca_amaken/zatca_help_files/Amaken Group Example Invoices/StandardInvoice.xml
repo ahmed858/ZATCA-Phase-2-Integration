@@ -45,7 +45,8 @@
                 </cac:TaxScheme>
             </cac:PartyTaxScheme>
             <cac:PartyLegalEntity>
-                <cbc:RegistrationName>شركة مجموعة أماكن الدولية | Amaken International Group</cbc:RegistrationName>
+                <cbc:RegistrationName>شركة مجموعة أماكن الدولية | Amaken
+                    International Group</cbc:RegistrationName>
             </cac:PartyLegalEntity>
         </cac:Party>
     </cac:AccountingSupplierParty>

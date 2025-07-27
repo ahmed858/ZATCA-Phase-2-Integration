@@ -184,6 +184,8 @@ from frappe.utils import today
 
 def add_SupplierParty(invoice, invoice_number,log_doc):
     try:
+        sales_invoice_doc = frappe.get_doc('Sales Invoice',invoice_number)
+        company_doc = frappe.get_doc('Company',sales_invoice_doc.company)
 
         AccountingSupplierParty_tag = ET.SubElement(
             invoice, "cac:AccountingSupplierParty"
@@ -194,7 +196,7 @@ def add_SupplierParty(invoice, invoice_number,log_doc):
         PartyIdentification_tag = ET.SubElement(Party_tag, "cac:PartyIdentification")
         PartyIdentification_ID_tag = ET.SubElement(PartyIdentification_tag, "cbc:ID")
         PartyIdentification_ID_tag.set("schemeID", "CRN")
-        PartyIdentification_ID_tag.text = "1010443011"  # رقم السجل التجاري
+        PartyIdentification_ID_tag.text = company_doc.commercial_register  # رقم السجل التجاري
 
         # Postal Address
         PostalAddress_tag = ET.SubElement(Party_tag, "cac:PostalAddress")
@@ -214,19 +216,22 @@ def add_SupplierParty(invoice, invoice_number,log_doc):
 
         # Tax Info
         PartyTaxScheme_tag = ET.SubElement(Party_tag, "cac:PartyTaxScheme")
-        ET.SubElement(PartyTaxScheme_tag, "cbc:CompanyID").text = "310306860300003"
+        ET.SubElement(PartyTaxScheme_tag, "cbc:CompanyID").text = company_doc.tax_id
         TaxScheme_tag = ET.SubElement(PartyTaxScheme_tag, "cac:TaxScheme")
         ET.SubElement(TaxScheme_tag, "cbc:ID").text = "VAT"
 
         # Legal Entity
+        company_xmlname=  "شركة أماكن وشريكه للتقييم العقاري | Amaken and Partner Real Estate Appraisal Company"
+        if company_doc.name == 'شركة مجموعة أماكن الدولية':
+           company_xmlname = 'شركة مجموعة أماكن الدولية | Amaken International Group'
+            
         PartyLegalEntity = ET.SubElement(Party_tag, "cac:PartyLegalEntity")
-        ET.SubElement(PartyLegalEntity, "cbc:RegistrationName").text = (
-            "شركة أماكن وشريكه للتقييم العقاري | Amaken and Partner Real Estate Appraisal Company"
-        )
+        ET.SubElement(PartyLegalEntity, "cbc:RegistrationName").text = company_xmlname
+
         return invoice
     except Exception as e:
         frappe.msgprint(
-            "حدث خطأ في إضافة بيانات المورد: {0}"
+            f"حدث خطأ في إضافة بيانات المورد: {e}"
         )
         log_doc.coding_error = (log_doc.coding_error or '') +  str(e)
         log_doc.save(ignore_permissions=True)
@@ -734,6 +739,7 @@ def generate_qr_image(text: str):
 def clear_invoice(doc=None,   sales_invoice_name=None,zatca_integration_type= 'simulation'):
     log_doc = frappe.new_doc("Zatca Integration Log")
 
+    
     if doc:  # Triggered by on_submit hook
         sales_invoice_doc = doc
         log_doc.fired_from = "on_submit"
@@ -745,9 +751,11 @@ def clear_invoice(doc=None,   sales_invoice_name=None,zatca_integration_type= 's
         frappe.msgprint(frappe._ ("No Sales Invoice provided."))
         log_doc.save()
         return 0
+    
     log_doc.invoice_reference = sales_invoice_doc.name
-    log_doc.save()
-
+    log_doc.integration_type = zatca_integration_type
+    log_doc.insert()
+    
     print('ok1')
     if sales_invoice_doc.custom_b2c:
         frappe.msgprint(frappe._( "الفواتير المبسطة لا تعمل في الوقت الحالي."))
@@ -758,7 +766,7 @@ def clear_invoice(doc=None,   sales_invoice_name=None,zatca_integration_type= 's
 
     company = frappe.get_doc("Company", sales_invoice_doc.company)
 
-    if company.name != 'شركة أماكن للتقييم العقاري':
+    if company.name == 'أماكن للاستشارات الإدارية':
         frappe.msgprint(f'لم يتم الربط علي شركة {company.name} بعد')
         return
     
@@ -773,7 +781,7 @@ def clear_invoice(doc=None,   sales_invoice_name=None,zatca_integration_type= 's
 
     integration_type = zatca_amaken_settings_doc.integration_type
     
-    log_doc.integration_type = integration_type
+    
     print('ok3')
     print(zatca_amaken_settings_doc.name)
 
@@ -792,9 +800,9 @@ def clear_invoice(doc=None,   sales_invoice_name=None,zatca_integration_type= 's
     else:
 
         zatca_amaken_counter_settings_doc = frappe.new_doc("Zatca Invoice Counting Settings" )
-        zatca_amaken_counter_settings_doc.zatca_settings_reference = zatca_amaken_settings_doc.name
- 
         zatca_amaken_counter_settings_doc.company_counter_for = company.name
+        zatca_amaken_counter_settings_doc.zatca_settings_reference = zatca_amaken_settings_doc.name
+        zatca_amaken_counter_settings_doc.integration_type = integration_type
         zatca_amaken_counter_settings_doc.insert()
 
     if frappe.db.exists(
@@ -814,6 +822,7 @@ def clear_invoice(doc=None,   sales_invoice_name=None,zatca_integration_type= 's
         additional_fields_doc = frappe.new_doc("Sales Invoice Additional Fields")
         additional_fields_doc.invoice_reference = sales_invoice_doc.name
         additional_fields_doc.integration_type = integration_type
+        additional_fields_doc.insert()
     print('ok4')
 
     if (
@@ -876,7 +885,7 @@ def clear_invoice(doc=None,   sales_invoice_name=None,zatca_integration_type= 's
     
     
     
-    if response.status_code == 200 or response.status_code == 201 or response.status_code == 202:
+    if response.status_code == 200 or response.status_code == 201 or response.status_code == 202 or response.status_code == 208:
 
         integration_status = (
             "Accepted" if response.status_code == 200 else "Accepted with warnings"
