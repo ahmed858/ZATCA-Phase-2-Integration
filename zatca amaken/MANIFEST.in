@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include zatca_amaken *.css
+recursive-include zatca_amaken *.csv
+recursive-include zatca_amaken *.html
+recursive-include zatca_amaken *.ico
+recursive-include zatca_amaken *.js
+recursive-include zatca_amaken *.json
+recursive-include zatca_amaken *.md
+recursive-include zatca_amaken *.png
+recursive-include zatca_amaken *.py
+recursive-include zatca_amaken *.svg
+recursive-include zatca_amaken *.txt
+recursive-exclude zatca_amaken *.pyc

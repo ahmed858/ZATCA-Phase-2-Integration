@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:Invoice xmlns:ns0="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:ns2="urn:oasis:names:specification:ubl:schema:xsd:CommonSignatureComponents-2" xmlns:ns3="urn:oasis:names:specification:ubl:schema:xsd:SignatureAggregateComponents-2" xmlns:ns4="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ns5="urn:oasis:names:specification:ubl:schema:xsd:SignatureBasicComponents-2" xmlns:ns6="http://www.w3.org/2000/09/xmldsig#" xmlns:ns7="http://uri.etsi.org/01903/v1.3.2#" xmlns:ns8="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"><ns1:UBLExtensions>
+    <ns1:UBLExtension>
+        <ns1:ExtensionURI>urn:oasis:names:specification:ubl:dsig:enveloped:xades</ns1:ExtensionURI>
+        <ns1:ExtensionContent>
+            <ns2:UBLDocumentSignatures>
+                <ns3:SignatureInformation> 
+                    <ns4:ID>urn:oasis:names:specification:ubl:signature:1</ns4:ID>
+                    <ns5:ReferencedSignatureID>urn:oasis:names:specification:ubl:signature:Invoice</ns5:ReferencedSignatureID>
+                    <ns6:Signature Id="signature">
+                        <ns6:SignedInfo>
+                            <ns6:CanonicalizationMethod Algorithm="http://www.w3.org/2006/12/xml-c14n11" />
+                            <ns6:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256" />
+                            <ns6:Reference Id="invoiceSignedData" URI="">
+                                <ns6:Transforms>
+                                    <ns6:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+                                        <ns6:XPath>not(//ancestor-or-self::ext:UBLExtensions)</ns6:XPath>
+                                    </ns6:Transform>
+                                    <ns6:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+                                        <ns6:XPath>not(//ancestor-or-self::cac:Signature)</ns6:XPath>
+                                    </ns6:Transform>
+                                    <ns6:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+                                        <ns6:XPath>not(//ancestor-or-self::cac:AdditionalDocumentReference[cbc:ID='QR'])</ns6:XPath>
+                                    </ns6:Transform>
+                                    <ns6:Transform Algorithm="http://www.w3.org/2006/12/xml-c14n11" />
+                                </ns6:Transforms>
+                                <ns6:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+                                <ns6:DigestValue>nte1iQKFlmdXK/n0k5xsWPRUKcI6pGHIctXV5FO1LBU=</ns6:DigestValue>
+                            </ns6:Reference>
+                            <ns6:Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#xadesSignedProperties">
+                                <ns6:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+                                <ns6:DigestValue>ZTliZTk1YWU5MzI5OGU3MTFmYmQwZDU4NTcxMzgwNzBlYTE1ZjliMTU1YjYxNmIwMjVkNmRjZTA1MjM3ODU1Yg==</ns6:DigestValue>
+                            </ns6:Reference>
+                        </ns6:SignedInfo>
+                        <ns6:SignatureValue>MEYCIQC1nxtwWspMbPesIyIbRZlvkV3j5HlN7Kg9R40Cs8L5KgIhAKBB0kZkgNY6JZLrxWnkbgNxQTC15cDGwFTziARvfJeN</ns6:SignatureValue>
+                        <ns6:KeyInfo>
+                            <ns6:X509Data>
+                                <ns6:X509Certificate>MIIFRjCCBO2gAwIBAgITFwABDOK9z13/k2yv+AABAAEM4jAKBggqhkjOPQQDAjBiMRUwEwYKCZImiZPyLGQBGRYFbG9jYWwxEzARBgoJkiaJk/IsZAEZFgNnb3YxFzAVBgoJkiaJk/IsZAEZFgdleHRnYXp0MRswGQYDVQQDExJQUlpFSU5WT0lDRVNDQTMtQ0EwHhcNMjUwNTA1MDU1MDQ3WhcNMzAwNDAyMDM0MTAyWjCBpzELMAkGA1UEBhMCU0ExRzBFBgNVBAoMPti02LHZg9ipINij2YXYp9mD2YYg2YjYtNix2YrZg9mHINmE2YTYqtmC2YrZitmFINin2YTYudmC2KfYsdmKMRMwEQYDVQQLEwozMTAzMDY4NjAzMTowOAYDVQQDDDHYtNix2YPYqSDYp9mF2KfZg9mGINmE2YTYqtmC2YrZitmFINin2YTYudmC2KfYsdmKMFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEnpsLW2h6EO2B+o3M8/xLTHm868DUNKBrwR0A/K1JXbB0SRsc3QjvdY1nHk3ZslfPQDHVFg4PlRqmPv7wFcjvRKOCAz0wggM5MIGnBgNVHREEgZ8wgZykgZkwgZYxLTArBgNVBAQMJDEtQU1BS0VOfDItZ29hbWFrZW58My0tMTExOC05YjU4LTExODEfMB0GCgmSJomT8ixkAQEMDzMxMDMwNjg2MDMwMDAwMzENMAsGA1UEDAwEMTAwMDEPMA0GA1UEGgwGUml5YWRoMSQwIgYDVQQPDBvYqtis2KfYsdipINin2YTYudmC2KfYsdin2KowHQYDVR0OBBYEFMfjk+IS6HI2Tto/lPZ2qTdKTjyQMB8GA1UdIwQYMBaAFB/lmNQmG2UZm9mLs7vs/uGnljt2MIHlBgNVHR8Egd0wgdowgdeggdSggdGGgc5sZGFwOi8vL0NOPVBSWkVJTlZPSUNFU0NBMy1DQSgxKSxDTj1QUlpFSU5WT0lDRVNDQTMsQ049Q0RQLENOPVB1YmxpYyUyMEtleSUyMFNlcnZpY2VzLENOPVNlcnZpY2VzLENOPUNvbmZpZ3VyYXRpb24sREM9ZXh0emF0Y2EsREM9Z292LERDPWxvY2FsP2NlcnRpZmljYXRlUmV2b2NhdGlvbkxpc3Q/YmFzZT9vYmplY3RDbGFzcz1jUkxEaXN0cmlidXRpb25Qb2ludDCBzgYIKwYBBQUHAQEEgcEwgb4wgbsGCCsGAQUFBzAChoGubGRhcDovLy9DTj1QUlpFSU5WT0lDRVNDQTMtQ0EsQ049QUlBLENOPVB1YmxpYyUyMEtleSUyMFNlcnZpY2VzLENOPVNlcnZpY2VzLENOPUNvbmZpZ3VyYXRpb24sREM9ZXh0emF0Y2EsREM9Z292LERDPWxvY2FsP2NBQ2VydGlmaWNhdGU/YmFzZT9vYmplY3RDbGFzcz1jZXJ0aWZpY2F0aW9uQXV0aG9yaXR5MA4GA1UdDwEB/wQEAwIHgDA8BgkrBgEEAYI3FQcELzAtBiUrBgEEAYI3FQiBhqgdhND7EobtnSSHzvsZ08BVZof6pWWF2YQ+AgFkAgEOMB0GA1UdJQQWMBQGCCsGAQUFBwMDBggrBgEFBQcDAjAnBgkrBgEEAYI3FQoEGjAYMAoGCCsGAQUFBwMDMAoGCCsGAQUFBwMCMAoGCCqGSM49BAMCA0cAMEQCIEigbkYFDJuJeys0u6sIQ03KioNLPZEddtGmYFbAS0LNAiAbLDIfFc/4qTPgQAPhXzxEVMo7c2OX60lEj+VdjmeznQ==</ns6:X509Certificate>
+                            </ns6:X509Data>
+                        </ns6:KeyInfo>
+                        <ns6:Object>
+                            <ns7:QualifyingProperties Target="signature">
+                                <ns7:SignedProperties Id="xadesSignedProperties">
+                                    <ns7:SignedSignatureProperties>
+                                        <ns7:SigningTime>2025-05-06T11:30:34</ns7:SigningTime>
+                                        <ns7:SigningCertificate>
+                                            <ns7:Cert>
+                                                <ns7:CertDigest>
+                                                    <ns6:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+                                                    <ns6:DigestValue>ZGM4ZTBkMzk5YjEwM2FjNTRjY2U3MjIwZGVhNmQyNGY0OGE5MzJmMzFmNGZmNDM1ZWIwY2RjZjk1YTJkYjE5Ng==</ns6:DigestValue>
+                                                </ns7:CertDigest>
+                                                <ns7:IssuerSerial>
+                                                    <ns6:X509IssuerName>CN=PRZEINVOICESCA3-CA, DC=extgazt, DC=gov, DC=local</ns6:X509IssuerName>
+                                                    <ns6:X509SerialNumber>512917496976616097377455311155152918853782754</ns6:X509SerialNumber>
+                                                </ns7:IssuerSerial>
+                                            </ns7:Cert>
+                                        </ns7:SigningCertificate>
+                                    </ns7:SignedSignatureProperties>
+                                </ns7:SignedProperties>
+                            </ns7:QualifyingProperties>
+                        </ns6:Object>
+                    </ns6:Signature>
+                </ns3:SignatureInformation>
+            </ns2:UBLDocumentSignatures>
+        </ns1:ExtensionContent>
+    </ns1:UBLExtension>
+</ns1:UBLExtensions><ns4:ProfileID>reporting:1.0</ns4:ProfileID><ns4:ID>AIG-25-0387</ns4:ID><ns4:UUID>613be80a-2a54-11f0-b2f0-00155d01c406</ns4:UUID><ns4:IssueDate>2025-05-06</ns4:IssueDate><ns4:IssueTime>11:30:34</ns4:IssueTime><ns4:InvoiceTypeCode name="0100000">388</ns4:InvoiceTypeCode><ns4:DocumentCurrencyCode>SAR</ns4:DocumentCurrencyCode><ns4:TaxCurrencyCode>SAR</ns4:TaxCurrencyCode><ns8:AdditionalDocumentReference><ns4:ID>ICV</ns4:ID><ns4:UUID>5</ns4:UUID></ns8:AdditionalDocumentReference><ns8:AdditionalDocumentReference><ns4:ID>PIH</ns4:ID><ns8:Attachment><ns4:EmbeddedDocumentBinaryObject mimeCode="text/plain">s5scW7sTQL4lTWU3tt5gWnWrZCziSl2xynuB91AjZl8=</ns4:EmbeddedDocumentBinaryObject></ns8:Attachment></ns8:AdditionalDocumentReference><ns8:AdditionalDocumentReference>
+        <ns4:ID>QR</ns4:ID>
+        <ns8:Attachment>
+            <ns4:EmbeddedDocumentBinaryObject mimeCode="text/plain">AXHYtNix2YPYqSDYo9mF2KfZg9mGINmI2LTYsdmK2YPZhyDZhNmE2KrZgtmK2YrZhSDYp9mE2LnZgtin2LHZiiB8IEFtYWtlbiBhbmQgUGFydG5lciBSZWFsIEVzdGF0ZSBBcHByYWlzYWwgQ29tcGFueQIPMzEwMzA2ODYwMzAwMDAzAxMyMDI1LTA1LTA2VDExOjMwOjM0BAMwLjAFAzAuMAYsbnRlMWlRS0ZsbWRYSy9uMGs1eHNXUFJVS2NJNnBHSEljdFhWNUZPMUxCVT0HYE1FWUNJUUMxbnh0d1dzcE1iUGVzSXlJYlJabHZrVjNqNUhsTjdLZzlSNDBDczhMNUtnSWhBS0JCMGtaa2dOWTZKWkxyeFdua2JnTnhRVEMxNWNER3dGVHppQVJ2ZkplTghYMFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEnpsLW2h6EO2B+o3M8/xLTHm868DUNKBrwR0A/K1JXbB0SRsc3QjvdY1nHk3ZslfPQDHVFg4PlRqmPv7wFcjvRA==</ns4:EmbeddedDocumentBinaryObject>
+        </ns8:Attachment>
+</ns8:AdditionalDocumentReference><ns8:Signature>
+      <ns4:ID>urn:oasis:names:specification:ubl:signature:Invoice</ns4:ID>
+      <ns4:SignatureMethod>urn:oasis:names:specification:ubl:dsig:enveloped:xades</ns4:SignatureMethod>
+</ns8:Signature><ns8:AccountingSupplierParty><ns8:Party><ns8:PartyIdentification><ns4:ID schemeID="CRN">1010443011</ns4:ID></ns8:PartyIdentification><ns8:PostalAddress><ns4:StreetName>الدائري الشرقي الفرعي | Eastern Ring Branch</ns4:StreetName><ns4:BuildingNumber>6805</ns4:BuildingNumber><ns4:CitySubdivisionName>الريان | Al Rayan</ns4:CitySubdivisionName><ns4:CityName>الرياض | Riyadh</ns4:CityName><ns4:PostalZone>14213</ns4:PostalZone><ns4:CountrySubentity>Saudi Arabia</ns4:CountrySubentity><ns8:Country><ns4:IdentificationCode>SA</ns4:IdentificationCode></ns8:Country></ns8:PostalAddress><ns8:PartyTaxScheme><ns4:CompanyID>310306860300003</ns4:CompanyID><ns8:TaxScheme><ns4:ID>VAT</ns4:ID></ns8:TaxScheme></ns8:PartyTaxScheme><ns8:PartyLegalEntity><ns4:RegistrationName>شركة أماكن وشريكه للتقييم العقاري | Amaken and Partner Real Estate Appraisal Company</ns4:RegistrationName></ns8:PartyLegalEntity></ns8:Party></ns8:AccountingSupplierParty><ns8:AccountingCustomerParty><ns8:Party><ns8:PartyIdentification><ns4:ID schemeID="NAT">300223667500003</ns4:ID></ns8:PartyIdentification><ns8:PostalAddress><ns4:StreetName>الدائري الشرقي الفرعي</ns4:StreetName><ns4:BuildingNumber>6805</ns4:BuildingNumber><ns4:CitySubdivisionName>الريان</ns4:CitySubdivisionName><ns4:CityName>الرياض</ns4:CityName><ns4:PostalZone>14213</ns4:PostalZone><ns4:CountrySubentity>Saudi Arabia</ns4:CountrySubentity><ns8:Country><ns4:IdentificationCode>SA</ns4:IdentificationCode></ns8:Country></ns8:PostalAddress><ns8:PartyTaxScheme><ns4:CompanyID>300223667500003</ns4:CompanyID><ns8:TaxScheme><ns4:ID>VAT</ns4:ID></ns8:TaxScheme></ns8:PartyTaxScheme><ns8:PartyLegalEntity><ns4:RegistrationName>Grant Plastics Ltd.</ns4:RegistrationName></ns8:PartyLegalEntity></ns8:Party></ns8:AccountingCustomerParty><ns8:Delivery><ns4:ActualDeliveryDate>2025-05-06</ns4:ActualDeliveryDate></ns8:Delivery><ns8:PaymentMeans><ns4:PaymentMeansCode>30</ns4:PaymentMeansCode></ns8:PaymentMeans><ns8:AllowanceCharge><ns4:ChargeIndicator>false</ns4:ChargeIndicator><ns4:AllowanceChargeReasonCode>None</ns4:AllowanceChargeReasonCode><ns4:AllowanceChargeReason>None</ns4:AllowanceChargeReason><ns4:Amount currencyID="SAR">0.00</ns4:Amount><ns8:TaxCategory><ns4:ID>S</ns4:ID><ns4:Percent>15.00</ns4:Percent><ns8:TaxScheme><ns4:ID>VAT</ns4:ID></ns8:TaxScheme></ns8:TaxCategory></ns8:AllowanceCharge><ns8:TaxTotal><ns4:TaxAmount currencyID="SAR">0.0</ns4:TaxAmount></ns8:TaxTotal><ns8:TaxTotal><ns4:TaxAmount currencyID="SAR">0.0</ns4:TaxAmount><ns8:TaxSubtotal><ns4:TaxableAmount currencyID="SAR">0.0</ns4:TaxableAmount><ns4:TaxAmount currencyID="SAR">0.0</ns4:TaxAmount><ns8:TaxCategory><ns4:ID>S</ns4:ID><ns4:Percent>15.00</ns4:Percent><ns8:TaxScheme><ns4:ID>VAT</ns4:ID></ns8:TaxScheme></ns8:TaxCategory></ns8:TaxSubtotal></ns8:TaxTotal><ns8:LegalMonetaryTotal><ns4:LineExtensionAmount currencyID="SAR">0.0</ns4:LineExtensionAmount><ns4:TaxExclusiveAmount currencyID="SAR">0.0</ns4:TaxExclusiveAmount><ns4:TaxInclusiveAmount currencyID="SAR">0.0</ns4:TaxInclusiveAmount><ns4:AllowanceTotalAmount currencyID="SAR">0.00</ns4:AllowanceTotalAmount><ns4:PayableAmount currencyID="SAR">0.0</ns4:PayableAmount></ns8:LegalMonetaryTotal><ns8:InvoiceLine><ns4:ID>1</ns4:ID><ns4:InvoicedQuantity unitCode="Nos">1.0</ns4:InvoicedQuantity><ns4:LineExtensionAmount currencyID="SAR">0.0</ns4:LineExtensionAmount><ns8:TaxTotal><ns4:TaxAmount currencyID="SAR">0.0</ns4:TaxAmount><ns4:RoundingAmount currencyID="SAR">0.0</ns4:RoundingAmount></ns8:TaxTotal><ns8:Item><ns4:Name>تقييم </ns4:Name><ns8:ClassifiedTaxCategory><ns4:ID>S</ns4:ID><ns4:Percent>15.0</ns4:Percent><ns8:TaxScheme><ns4:ID>VAT</ns4:ID></ns8:TaxScheme></ns8:ClassifiedTaxCategory></ns8:Item><ns8:Price><ns4:PriceAmount currencyID="SAR">0.0</ns4:PriceAmount></ns8:Price></ns8:InvoiceLine></ns0:Invoice>

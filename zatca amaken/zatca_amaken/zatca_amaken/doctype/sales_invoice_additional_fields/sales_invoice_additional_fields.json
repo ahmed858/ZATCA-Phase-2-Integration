@@ -1,0 +1,212 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{invoice_reference}-AdditionalFields-{integration_type}",
+ "creation": "2025-04-28 09:21:23.912850",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "details_section",
+  "integration_status",
+  "integration_type",
+  "last_attempt",
+  "invoice_reference",
+  "invoice_type_code",
+  "invoice_type_transaction",
+  "invoice_counter",
+  "uuid",
+  "zatca_settings_integration_refrance",
+  "column_break_7",
+  "qr_code",
+  "qr_code_attatch",
+  "qr_image",
+  "invoice_hash",
+  "previous_invoice_hash",
+  "buyer_section",
+  "buyer_vat_registration_number",
+  "street_name",
+  "building_number",
+  "column_break_19",
+  "city",
+  "postal_code",
+  "district",
+  "country_code",
+  "section_break_26",
+  "xml_invoice"
+ ],
+ "fields": [
+  {
+   "fieldname": "invoice_type_code",
+   "fieldtype": "Data",
+   "label": "Invoice Type Code"
+  },
+  {
+   "fieldname": "invoice_type_transaction",
+   "fieldtype": "Data",
+   "label": "Invoice Type Transaction"
+  },
+  {
+   "fieldname": "invoice_counter",
+   "fieldtype": "Data",
+   "label": "Invoice Counter"
+  },
+  {
+   "fieldname": "previous_invoice_hash",
+   "fieldtype": "Data",
+   "label": "Previous Invoice Hash"
+  },
+  {
+   "fieldname": "qr_code",
+   "fieldtype": "Small Text",
+   "label": "QR Code"
+  },
+  {
+   "fieldname": "invoice_hash",
+   "fieldtype": "Data",
+   "label": "Invoice Hash"
+  },
+  {
+   "fieldname": "integration_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Integration Status",
+   "options": "\nReady For Batch\nResend\nCorrected\nAccepted with warnings\nAccepted\nRejected\nClearance switched off"
+  },
+  {
+   "fieldname": "last_attempt",
+   "fieldtype": "Date",
+   "label": "Last Attempt"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "uuid",
+   "fieldtype": "Data",
+   "label": "UUID"
+  },
+  {
+   "fieldname": "buyer_section",
+   "fieldtype": "Section Break",
+   "label": "Buyer"
+  },
+  {
+   "fieldname": "buyer_vat_registration_number",
+   "fieldtype": "Data",
+   "label": "Buyer VAT Registration Number"
+  },
+  {
+   "fieldname": "street_name",
+   "fieldtype": "Data",
+   "label": "Street Name"
+  },
+  {
+   "fieldname": "building_number",
+   "fieldtype": "Data",
+   "label": "Building Number"
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "postal_code",
+   "fieldtype": "Data",
+   "label": "Postal Code"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Data",
+   "label": "District"
+  },
+  {
+   "fieldname": "country_code",
+   "fieldtype": "Data",
+   "label": "Country Code"
+  },
+  {
+   "fieldname": "section_break_26",
+   "fieldtype": "Section Break",
+   "label": "E-invoice"
+  },
+  {
+   "fieldname": "invoice_reference",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Invoice Reference",
+   "options": "Sales Invoice"
+  },
+  {
+   "fieldname": "xml_invoice",
+   "fieldtype": "Text Editor",
+   "label": "XML Invoice"
+  },
+  {
+   "fieldname": "qr_code_attatch",
+   "fieldtype": "Attach Image",
+   "label": "QR Code Attatch"
+  },
+  {
+   "fieldname": "qr_image",
+   "fieldtype": "Image",
+   "label": "QR Image",
+   "options": "qr_code_attatch"
+  },
+  {
+   "fieldname": "integration_type",
+   "fieldtype": "Data",
+   "label": "Integration Type"
+  },
+  {
+   "fieldname": "zatca_settings_integration_refrance",
+   "fieldtype": "Link",
+   "label": "ZATCA Settings Integration refrance",
+   "options": "zatca amaken settings"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-07 11:14:53.926072",
+ "modified_by": "Administrator",
+ "module": "Zatca Amaken",
+ "name": "Sales Invoice Additional Fields",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,13 @@
+{
+ "creation": "2025-05-06 13:42:17.706769",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart Source",
+ "idx": 0,
+ "modified": "2025-05-06 13:42:17.706769",
+ "modified_by": "Administrator",
+ "module": "Zatca Amaken",
+ "name": "ZATCA Integration Status chart source",
+ "owner": "Administrator",
+ "source_name": "ZATCA Integration Status chart source",
+ "timeseries": 0
+}

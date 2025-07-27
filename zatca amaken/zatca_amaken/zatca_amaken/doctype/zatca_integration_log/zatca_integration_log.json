@@ -1,0 +1,103 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-04-28 11:00:25.856735",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "invoice_reference",
+  "invoice_additional_fields_reference",
+  "coding_error",
+  "column_break_3",
+  "integration_type",
+  "status",
+  "zatca_status",
+  "fired_from",
+  "section_break_7",
+  "zatca_message"
+ ],
+ "fields": [
+  {
+   "fieldname": "invoice_reference",
+   "fieldtype": "Data",
+   "label": "Invoice Reference",
+   "read_only": 1
+  },
+  {
+   "fieldname": "invoice_additional_fields_reference",
+   "fieldtype": "Data",
+   "label": "Invoice Additional Fields Reference",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "zatca_message",
+   "fieldtype": "Long Text",
+   "label": "ZATCA Message",
+   "read_only": 1
+  },
+  {
+   "fieldname": "zatca_status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "ZATCA Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "integration_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Integration Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "fired_from",
+   "fieldtype": "Data",
+   "label": "Fired from"
+  },
+  {
+   "fieldname": "coding_error",
+   "fieldtype": "Long Text",
+   "label": "coding error"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-22 13:21:20.857019",
+ "modified_by": "Administrator",
+ "module": "Zatca Amaken",
+ "name": "Zatca Integration Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

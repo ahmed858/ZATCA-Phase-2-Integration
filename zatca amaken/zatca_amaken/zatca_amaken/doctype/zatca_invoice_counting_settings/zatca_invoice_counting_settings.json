@@ -1,0 +1,73 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-04-28 11:09:38.879981",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company_counter_for",
+  "zatca_settings_reference",
+  "integration_type",
+  "invoice_counter",
+  "previous_invoice_hash"
+ ],
+ "fields": [
+  {
+   "fieldname": "zatca_settings_reference",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "ZATCA Settings Reference",
+   "options": "zatca amaken settings"
+  },
+  {
+   "default": "0",
+   "fieldname": "invoice_counter",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Invoice Counter"
+  },
+  {
+   "default": "NWZlY2ViNjZmZmM4NmYzOGQ5NTI3ODZjNmQ2OTZjNzljMmRiYzIzOWRkNGU5MWI0NjcyOWQ3M2EyN2ZiNTdlOQ==",
+   "fieldname": "previous_invoice_hash",
+   "fieldtype": "Data",
+   "label": "Previous Invoice Hash"
+  },
+  {
+   "fieldname": "company_counter_for",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company Counter for",
+   "options": "Company"
+  },
+  {
+   "fieldname": "integration_type",
+   "fieldtype": "Data",
+   "label": "integration type"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-07 13:21:27.735597",
+ "modified_by": "Administrator",
+ "module": "Zatca Amaken",
+ "name": "Zatca Invoice Counting Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

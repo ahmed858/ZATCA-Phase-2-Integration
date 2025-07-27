@@ -1,0 +1,238 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-04-24 15:03:36.332534",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "company_data_section",
+        "organization_name",
+        "common_name",
+        "organization_unit_name",
+        "organization_identifier",
+        "business_category",
+        "generate_csr_btn",
+        "column_break_8",
+        "invoice_type",
+        "serial_number",
+        "integration_type",
+        "location_address",
+        "country_name",
+        "csr_data_section",
+        "private_key",
+        "public_key",
+        "column_break_17",
+        "csr",
+        "first_csid_section_section",
+        "first_secret",
+        "first_binary_security_token",
+        "column_break_22",
+        "first_request_id",
+        "first_csid_errors",
+        "test_example_invoices_btn",
+        "get_first_csid_btn",
+        "production_csid_data_section",
+        "production_request_id",
+        "production_secret",
+        "production_binary_security_token",
+        "generate_product_csid_btn"
+    ],
+    "fields": [
+        {
+            "fieldname": "company_data_section",
+            "fieldtype": "Section Break",
+            "label": "Company Data"
+        },
+        {
+            "default": "\u0634\u0631\u0643\u0629 \u0623\u0645\u0627\u0643\u0646 \u0648\u0634\u0631\u064a\u0643\u0647 \u0644\u0644\u062a\u0642\u064a\u064a\u0645 \u0627\u0644\u0639\u0642\u0627\u0631\u064a",
+            "fieldname": "organization_name",
+            "fieldtype": "Data",
+            "label": "Organization Name"
+        },
+        {
+            "default": "\u0634\u0631\u0643\u0629 \u0627\u0645\u0627\u0643\u0646 \u0644\u0644\u062a\u0642\u064a\u064a\u0645 \u0627\u0644\u0639\u0642\u0627\u0631\u064a",
+            "fieldname": "common_name",
+            "fieldtype": "Data",
+            "label": "Common Name"
+        },
+        {
+            "default": "3103068603",
+            "fieldname": "organization_unit_name",
+            "fieldtype": "Data",
+            "label": "Organization Unit Name"
+        },
+        {
+            "default": "310306860300003",
+            "fieldname": "organization_identifier",
+            "fieldtype": "Data",
+            "label": "Organization Identifier"
+        },
+        {
+            "default": "\u062a\u062c\u0627\u0631\u0629 \u0627\u0644\u0639\u0642\u0627\u0631\u0627\u062a",
+            "fieldname": "business_category",
+            "fieldtype": "Data",
+            "label": "Business Category"
+        },
+        {
+            "fieldname": "generate_csr_btn",
+            "fieldtype": "Button",
+            "label": "Generate CSR"
+        },
+        {
+            "fieldname": "column_break_8",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "1-AMAKEN|2-amaken|3-ed22f1d8-e6a2-1118-9b58-d9a8f",
+            "fieldname": "serial_number",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Serial Number",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "invoice_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Invoice Type",
+            "options": "Standard Invoices\nSimplified Invoices\nBoth",
+            "reqd": 1
+        },
+        {
+            "default": "SA",
+            "fieldname": "country_name",
+            "fieldtype": "Data",
+            "label": "Country Name"
+        },
+        {
+            "default": "Riyadh",
+            "fieldname": "location_address",
+            "fieldtype": "Data",
+            "label": "Location Address"
+        },
+        {
+            "fieldname": "csr_data_section",
+            "fieldtype": "Section Break",
+            "label": "CSR Data"
+        },
+        {
+            "fieldname": "private_key",
+            "fieldtype": "Long Text",
+            "label": "Private Key",
+            "read_only": 1
+        },
+        {
+            "fieldname": "public_key",
+            "fieldtype": "Long Text",
+            "hidden": 1,
+            "label": "Public Key"
+        },
+        {
+            "fieldname": "column_break_17",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "csr",
+            "fieldtype": "Long Text",
+            "label": "CSR"
+        },
+        {
+            "fieldname": "first_csid_section_section",
+            "fieldtype": "Section Break",
+            "label": "First CSID Section"
+        },
+        {
+            "fieldname": "first_request_id",
+            "fieldtype": "Data",
+            "label": "Request ID"
+        },
+        {
+            "fieldname": "first_binary_security_token",
+            "fieldtype": "Long Text",
+            "label": "Binary Security Token"
+        },
+        {
+            "fieldname": "first_secret",
+            "fieldtype": "Data",
+            "label": "secret"
+        },
+        {
+            "fieldname": "first_csid_errors",
+            "fieldtype": "Long Text",
+            "label": "First CSID Errors"
+        },
+        {
+            "fieldname": "column_break_22",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "get_first_csid_btn",
+            "fieldtype": "Button",
+            "label": "Get first CSID"
+        },
+        {
+            "fieldname": "production_csid_data_section",
+            "fieldtype": "Section Break",
+            "label": "Production CSID data"
+        },
+        {
+            "fieldname": "production_request_id",
+            "fieldtype": "Data",
+            "label": "Production RequestID"
+        },
+        {
+            "fieldname": "production_secret",
+            "fieldtype": "Data",
+            "label": "production secret"
+        },
+        {
+            "fieldname": "production_binary_security_token",
+            "fieldtype": "Long Text",
+            "label": "Production Binary_security_token"
+        },
+        {
+            "fieldname": "generate_product_csid_btn",
+            "fieldtype": "Button",
+            "label": "generate Product CSID"
+        },
+        {
+            "fieldname": "integration_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Integration Type",
+            "options": "simulation\nsandbox\ncore",
+            "read_only": 1,
+            "reqd": 1
+        },
+        {
+            "fieldname": "test_example_invoices_btn",
+            "fieldtype": "Button",
+            "label": "test example invoices"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "issingle": 1,
+    "links": [],
+    "modified": "2025-04-27 12:40:41.229278",
+    "modified_by": "Administrator",
+    "module": "Zatca Amaken",
+    "name": "zatca settings for tseting",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

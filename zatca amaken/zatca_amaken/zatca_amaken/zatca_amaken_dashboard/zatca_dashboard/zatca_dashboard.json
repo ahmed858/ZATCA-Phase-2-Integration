@@ -1,0 +1,21 @@
+{
+ "cards": [],
+ "charts": [
+  {
+   "chart": "Analysis on integration status",
+   "width": "Half"
+  }
+ ],
+ "creation": "2025-05-06 13:31:12.999579",
+ "dashboard_name": "ZATCA Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 1,
+ "is_standard": 1,
+ "modified": "2025-05-06 13:31:12.999579",
+ "modified_by": "Administrator",
+ "module": "Zatca Amaken",
+ "name": "ZATCA Dashboard",
+ "owner": "Administrator"
+}
