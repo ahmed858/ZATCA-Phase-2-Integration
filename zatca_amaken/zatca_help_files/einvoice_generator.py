@@ -55,15 +55,16 @@ def salesinvoice_data(invoice, invoice_number, additional_fields_doc,log_doc,zat
         cac_PaymentMeans = ET.SubElement(invoice, "cac:PaymentMeans")
         cbc_PaymentMeansCode = ET.SubElement(cac_PaymentMeans, "cbc:PaymentMeansCode")
         cbc_PaymentMeansCode.text = "30"
+        
         # <cbc:InstructionNote>CANCELLATION_OR_TERMINATION</cbc:InstructionNote>
-        if sales_invoice_doc.credit_note_reason or sales_invoice_doc.debit_note_reason:
-
-            cbc_InstructionNote = ET.SubElement(cac_PaymentMeans, "cbc:InstructionNote")
-            cbc_InstructionNote.text = (
-                sales_invoice_doc.credit_note_reason
-                if sales_invoice_doc.credit_note_reason
-                else sales_invoice_doc.debit_note_reason
-            )
+        cbc_InstructionNote = ET.SubElement(cac_PaymentMeans, "cbc:InstructionNote")
+        if sales_invoice_doc.credit_note_reason:
+            cbc_InstructionNote.text = sales_invoice_doc.credit_note_reason
+        elif    sales_invoice_doc.debit_note_reason:
+            cbc_InstructionNote.text = sales_invoice_doc.debit_note_reason
+        else:
+            cbc_InstructionNote.text = 'CANCELLATION_OR_TERMINATION'
+ 
         # print("cbc_InstructionNote ok
         # print("PaymentMeansCode ok")
         ###########################################################
