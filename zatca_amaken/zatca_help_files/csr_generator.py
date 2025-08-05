@@ -69,6 +69,7 @@ def create_csr(ZATCA_settings_name):
             customoid = encode_customoid("PREZATCA-Code-Signing")
         else:
             customoid = encode_customoid("ZATCA-Code-Signing")
+
         type = ZATCA_settings_doc.invoice_type
         invoices_type = "1000"
         if type == "Standard Invoices":
@@ -77,6 +78,7 @@ def create_csr(ZATCA_settings_name):
             invoices_type = "0100"
         else:
             invoices_type = "1100"
+            
         custom_extension = x509.extensions.UnrecognizedExtension(oid, customoid)
 
         dn = x509.Name(
